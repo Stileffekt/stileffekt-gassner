@@ -1,0 +1,8 @@
+@use "../mixins/breakpoints" as *;
+@use "../mixins/grid" as *;
+@use "../mixins/fluid" as *;
+
+.c-date {
+  width: 100%;
+  font-size: #{fluid(16px, 22px)};
+}

@@ -1,0 +1,37 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+
+#main {
+  padding-top: var(--header-height);
+  min-height: 1px;
+}
+
+@include breakpoint(menu) {
+  #main {
+    padding-top: var(--header-height);
+  }
+}
+
+.l-wrapper {
+  overflow-x: clip;
+}
+
+.l-width {
+  max-width: var(--layout-width-max);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.l-padding {
+  padding-left: var(--layout-offset);
+  padding-right: var(--layout-offset);
+}
+
+.l-grid {
+
+  display: flex;
+  flex-flow: row wrap;
+  margin-right: calc(var(--layout-gutter) / 2 * -1);
+  margin-left: calc(var(--layout-gutter) / 2 * -1);
+}

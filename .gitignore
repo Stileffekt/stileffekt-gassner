@@ -1,0 +1,46 @@
+# Environment
+#.env
+
+# Database
+data/mysql/
+
+# WordPress Installation
+data/htdocs/*
+
+# WICHTIG: Theme-Tracking für Projekt-Repos: folgende Zeilen einkommentieren
+#
+!data/htdocs/wp-content/
+data/htdocs/wp-content/*
+!data/htdocs/wp-content/themes/
+data/htdocs/wp-content/themes/*
+!data/htdocs/wp-content/themes/stileffekt-*/
+data/htdocs/wp-content/themes/stileffekt-*/*.css
+data/htdocs/wp-content/themes/stileffekt-*/*.css.map
+!data/htdocs/wp-content/themes/stileffekt-*/style.css
+
+# Logs
+*.log
+data/php/*.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# AI Tools
+.claude/
+.cursor/
+.windsurf/
+.continue/
+.codex/
+.gemini/
+.opencode/
+
+# Template-Entwicklung: verhindert Git-Reinit im Template-Repo selbst
+.dev-instance

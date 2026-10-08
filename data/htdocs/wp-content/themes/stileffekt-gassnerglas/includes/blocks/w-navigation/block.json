@@ -1,0 +1,24 @@
+{
+  "name": "stilpress/w-navigation",
+  "title": "Navigation",
+  "description": "",
+  "style": "file:./style.css",
+  "category": "stilpress-all",
+  "icon": "block-default",
+  "apiVersion": 3,
+  "keywords": [
+    "navigation"
+  ],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "className": true,
+    "customClassName": true,
+    "alignContent": false
+  },
+  "acf": {
+    "hideFieldsInSidebar": true,
+    "blockVersion": 3,
+    "renderTemplate": "block.php"
+  }
+}

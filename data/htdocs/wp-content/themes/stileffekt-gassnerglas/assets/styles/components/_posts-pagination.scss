@@ -1,0 +1,29 @@
+.block-pagination {
+
+  .previous, .next, .overview {
+    width: 33.3333%;
+    display: flex;
+    align-items: center;
+  }
+
+  .previous, .next {
+    justify-content: flex-start;
+  }
+
+  .next {
+    justify-content: flex-end;
+  }
+
+  .overview {
+    justify-content: center;
+  }
+
+  &__post-pagination {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .c-button {
+    margin: 0;
+  }
+}

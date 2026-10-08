@@ -1,0 +1,137 @@
+{
+    "key": "group_b_image",
+    "title": "Image",
+    "fields": [
+        {
+            "key": "field_b_image__image_1",
+            "label": "Image",
+            "name": "b-image__image_1",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 1,
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_b_image__image_1_behaviour",
+            "label": "Image Behaviour",
+            "name": "b-image__image_1_behaviour",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 1,
+            "choices": {
+                "natural": "Natural",
+                "cover": "Cover",
+                "contain": "Contain"
+            },
+            "default_value": "natural",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_b_image__image_1_position",
+            "label": "Image Position",
+            "name": "b-image__image_1_position",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_b_image__image_1_behaviour",
+                        "operator": "==",
+                        "value": "cover"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_b_image__image_1_behaviour",
+                        "operator": "==",
+                        "value": "contain"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 1,
+            "choices": {
+                "top-left": "Top Left",
+                "top-center": "Top Center",
+                "top-right": "Top Right",
+                "center-left": "Center Left",
+                "center-center": "Center Center",
+                "center-right": "Center Right",
+                "bottom-left": "Bottom Left",
+                "bottom-center": "Bottom Center",
+                "bottom-right": "Bottom Right"
+            },
+            "default_value": "center-center",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "stilpress/b-image"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "acfml_field_group_mode": "translation",
+    "modified": 1791200875
+}

@@ -1,0 +1,113 @@
+@use "../mixins/fluid" as *;
+@use "../mixins/breakpoints" as *;
+@use "../mixins/grid" as *;
+
+.b {
+  margin-top: var(--block-margin);
+}
+
+main .b {
+  &:last-of-type {
+    margin-bottom: var(--block-margin);
+  }
+}
+
+// widget styles
+.w {
+  margin-top: #{fluid(32px, 56px)};
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.l-padding-top {
+  padding-top: var(--block-padding);
+}
+
+.l-padding-bottom {
+  padding-bottom: var(--block-padding);
+}
+
+.l-text-inverted {
+
+  color: var(--color-text-inverted);
+
+  a {
+    color: var(--color-text-inverted);
+  }
+
+  .c-overline {
+    color: var(--color-text-inverted);
+  }
+
+  .c-headline {
+    color: var(--color-text-inverted);
+  }
+
+  .c-icon {
+    path {
+      fill: var(--color-text-inverted);
+    }
+  }
+
+  .c-line {
+    &:before {
+      background-color: var(--color-background-2);
+    }
+  }
+}
+
+
+.b__headline,
+.b__text,
+.b__buttons,
+.b__links {
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.b__headline {
+  margin-top: #{fluid(24px,48px)};
+}
+
+.b__text {
+  margin-top: #{fluid(24px,48px)};
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.b__buttons,
+.b__links {
+  margin-top: #{fluid(24px,48px)};
+}
+
+
+.l-background-1 {
+  background-color: var(--color-background-1);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.l-background-2 {
+  background-color: var(--color-background-2);
+}
+
+.l-background-3 {
+  background-color: var(--color-background-3);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+
+.l-background-3 + .l-background-3,
+.l-background-1 + .l-background-3 {
+  margin-top: 0;
+}

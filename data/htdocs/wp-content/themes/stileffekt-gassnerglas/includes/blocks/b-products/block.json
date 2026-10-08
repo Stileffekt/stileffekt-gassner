@@ -1,0 +1,25 @@
+{
+  "name": "stilpress/b-products",
+  "title": "Products",
+  "description": "",
+  "style": "file:./style.css",
+  "script": "file:./script.js",
+  "category": "stilpress-all",
+  "icon": "heading",
+  "apiVersion": 3,
+  "keywords": [
+    "products"
+  ],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "className": true,
+    "customClassName": true,
+    "alignContent": false
+  },
+  "acf": {
+    "hideFieldsInSidebar": true,
+    "blockVersion": 3,
+    "renderTemplate": "block.php"
+  }
+}

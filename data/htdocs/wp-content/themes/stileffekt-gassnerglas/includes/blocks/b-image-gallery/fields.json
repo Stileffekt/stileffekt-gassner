@@ -1,0 +1,154 @@
+{
+    "key": "group_b_image_gallery",
+    "title": "Image Gallery",
+    "fields": [
+        {
+            "key": "field_b_image_gallery__overline",
+            "label": "Overline",
+            "name": "b-image-gallery__overline",
+            "type": "text",
+            "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_b_image_gallery__headline",
+            "label": "Headline",
+            "name": "b-image-gallery__headline",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            },
+            "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_b_image_gallery__headline_type",
+            "label": "Headline Type",
+            "name": "b-image-gallery__headline_type",
+            "type": "select",
+            "wrapper": {
+                "width": "25"
+            },
+            "choices": {
+                "h1": "h1",
+                "h2": "h2",
+                "h3": "h3",
+                "h4": "h4",
+                "h5": "h5",
+                "h6": "h6"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_b_image_gallery__headline_style",
+            "label": "Headline Style",
+            "name": "b-image-gallery__headline_style",
+            "type": "select",
+            "wrapper": {
+                "width": "25"
+            },
+            "choices": {
+                "h1": "h1",
+                "h2": "h2",
+                "h3": "h3",
+                "h4": "h4",
+                "h5": "h5",
+                "h6": "h6"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_b_image_gallery__text",
+            "label": "Text",
+            "name": "b-image-gallery__text",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_b_image_gallery__items",
+            "label": "Images",
+            "name": "b-image-gallery__items",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Eintrag hinzufügen",
+            "sub_fields": [
+                {
+                    "key": "field_b_image_gallery__item_image_1",
+                    "label": "Image",
+                    "name": "b-image-gallery__item_image_1",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_b_image_gallery__items"
+                },
+                {
+                    "key": "field_b_image_gallery__item_image_1_behaviour",
+                    "label": "Image Behaviour",
+                    "name": "b-image-gallery__item_image_1_behaviour",
+                    "type": "select",
+                    "choices": {
+                        "natural": "Natural",
+                        "cover": "Cover",
+                        "contain": "Contain"
+                    },
+                    "default_value": "natural",
+                    "return_format": "value",
+                    "parent_repeater": "field_b_image_gallery__items"
+                },
+                {
+                    "key": "field_b_image_gallery__item_image_1_position",
+                    "label": "Image Position",
+                    "name": "b-image-gallery__item_image_1_position",
+                    "type": "select",
+                    "choices": {
+                        "top-left": "Top Left",
+                        "top-center": "Top Center",
+                        "top-right": "Top Right",
+                        "center-left": "Center Left",
+                        "center-center": "Center Center",
+                        "center-right": "Center Right",
+                        "bottom-left": "Bottom Left",
+                        "bottom-center": "Bottom Center",
+                        "bottom-right": "Bottom Right"
+                    },
+                    "default_value": "center-center",
+                    "return_format": "value",
+                    "parent_repeater": "field_b_image_gallery__items",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_b_image_gallery__item_image_1_behaviour",
+                                "operator": "==",
+                                "value": "cover"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_b_image_gallery__item_image_1_behaviour",
+                                "operator": "==",
+                                "value": "contain"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "stilpress/b-image-gallery"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0,
+    "modified": 1791200875
+}

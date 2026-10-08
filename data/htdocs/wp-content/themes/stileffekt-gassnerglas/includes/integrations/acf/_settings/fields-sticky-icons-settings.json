@@ -1,0 +1,156 @@
+{
+  "key": "group_69ddf5922f832",
+  "title": "Sticky Icons Settings",
+  "fields": [
+    {
+      "key": "field_69ddf592d60ac",
+      "label": "Sticky Icons",
+      "name": "sticky_icons",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "pagination": 0,
+      "min": 0,
+      "max": 0,
+      "collapsed": "",
+      "button_label": "Add Row",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_69ddf616ccce9",
+          "label": "Type",
+          "name": "type",
+          "aria-label": "",
+          "type": "select",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "choices": {
+            "link": "Link",
+            "text": "Text"
+          },
+          "default_value": false,
+          "return_format": "value",
+          "multiple": 0,
+          "allow_null": 0,
+          "allow_in_bindings": 0,
+          "ui": 0,
+          "ajax": 0,
+          "placeholder": "",
+          "create_options": 0,
+          "save_options": 0,
+          "parent_repeater": "field_69ddf592d60ac"
+        },
+        {
+          "key": "field_69ddf5a7d60ad",
+          "label": "Icon",
+          "name": "icon",
+          "aria-label": "",
+          "type": "icon-picker",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "allow_in_bindings": 0,
+          "initial_value": "",
+          "parent_repeater": "field_69ddf592d60ac"
+        },
+        {
+          "key": "field_69ddf5be19b9e",
+          "label": "Link",
+          "name": "link",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_69ddf616ccce9",
+                "operator": "==",
+                "value": "link"
+              }
+            ]
+          ],
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array",
+          "allow_in_bindings": 0,
+          "parent_repeater": "field_69ddf592d60ac"
+        },
+        {
+          "key": "field_69ddf5d719b9f",
+          "label": "Text",
+          "name": "text",
+          "aria-label": "",
+          "type": "wysiwyg",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_69ddf616ccce9",
+                "operator": "==",
+                "value": "text"
+              }
+            ]
+          ],
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "tabs": "all",
+          "toolbar": "basic",
+          "media_upload": 0,
+          "delay": 0,
+          "allow_in_bindings": 0,
+          "parent_repeater": "field_69ddf592d60ac"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "theme-settings-sticky-icons"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": "",
+  "allow_ai_access": false,
+  "ai_description": "",
+  "modified": 1776154259
+}

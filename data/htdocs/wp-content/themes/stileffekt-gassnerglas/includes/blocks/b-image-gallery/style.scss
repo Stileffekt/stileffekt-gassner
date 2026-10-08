@@ -1,0 +1,30 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-images {
+
+  .b__content {
+    @include grid-column(12);
+  }
+
+  .b__images {
+    @include grid-column(12);
+    overflow: hidden;
+  }
+
+  .b__content + .b__images {
+    margin-top: var(--spacing);
+  }
+
+  .c-media {
+  }
+}
+
+@include breakpoint(lg) {
+  .b-images {
+    .b__content {
+      @include grid-column(8);
+    }
+  }
+}

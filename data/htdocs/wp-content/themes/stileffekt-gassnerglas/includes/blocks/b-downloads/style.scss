@@ -1,0 +1,77 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+
+.b-downloads {
+
+  .b__content {
+    @include grid-column(24);
+  }
+
+  .b__content + .b__downloads {
+    margin-top: var(--block-spacing);
+  }
+
+  .b__downloads {
+    @include grid-column(24);
+  }
+
+  .c-downloads {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--layout-gutter) * 2);
+  }
+
+  .c-downloads__item {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .c-downloads__image {
+    .c-media {
+      width: 100%;
+      aspect-ratio: 595/842;
+    }
+  }
+
+  .c-downloads__title {
+    margin-top: #{fluid(8px,16px)};
+    font-weight: 700;
+  }
+}
+
+@include breakpoint(sm) {
+  .b-downloads {
+
+    .b__content {
+      @include grid-column(20, 2);
+    }
+
+    .b__downloads {
+      @include grid-column(20, 2);
+    }
+
+    .c-downloads {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+  }
+}
+
+@include breakpoint(lg) {
+  .b-downloads {
+
+    .b__content {
+      @include grid-column(16, 4);
+    }
+
+    .b__downloads {
+      @include grid-column(16, 4);
+    }
+
+  }
+}
+
+

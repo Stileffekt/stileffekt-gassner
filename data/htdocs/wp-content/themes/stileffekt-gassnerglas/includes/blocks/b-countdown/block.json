@@ -1,0 +1,28 @@
+{
+  "name": "stilpress/b-countdown",
+  "title": "Countdown",
+  "description": "",
+  "style": [
+    "file:./style.css"
+  ],
+  "script": "file:./view.js",
+  "category": "stilpress-all",
+  "icon": "clock",
+  "apiVersion": 3,
+  "keywords": [
+    "countdown",
+    "golive"
+  ],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "className": true,
+    "customClassName": true,
+    "alignContent": false
+  },
+  "acf": {
+    "hideFieldsInSidebar": true,
+    "blockVersion": 3,
+    "renderTemplate": "block.php"
+  }
+}

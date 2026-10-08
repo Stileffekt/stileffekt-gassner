@@ -1,0 +1,109 @@
+@use "../mixins/breakpoints" as *;
+@use "../mixins/grid" as *;
+@use "../mixins/fluid" as *;
+
+.c-sticky-icons {
+  position: fixed;
+  z-index: 9;
+  top: var(--header-height);
+  height: calc(100svh - var(--header-height));
+  right: 0;
+  width: 100%;
+  pointer-events: none;
+
+  &__items {
+    position: relative;
+    top: 56%;
+    height: 44%;
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+  }
+
+  &__item {
+    margin-bottom: #{fluid(4px,8px)};
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-content: flex-end;
+
+    &:hover,
+    &:focus-within {
+      .c-sticky-icons__content {
+        max-width: 320px;
+        padding: #{fluid(12px,24px)};
+        padding-right: 0;
+        padding-left: #{fluid(16px,24px)};
+      }
+    }
+
+    a,
+    button {
+      background-color: var(--color-1);
+
+      color: var(--color-text-inverted);
+      pointer-events: all;
+      display: flex;
+      justify-content: flex-end;
+      flex-flow: row nowrap;
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      border-radius: 8px 0 0 8px;
+    }
+  }
+
+
+  &__icon {
+    width: #{fluid(48px,80px)};
+    height: #{fluid(48px,80px)};
+    padding: #{fluid(8px,12px)};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+
+    .c-icon {
+      width: #{fluid(20px,28px)};
+      height: #{fluid(20px,28px)};
+
+      svg path {
+        fill: var(--color-text-inverted);
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    height: #{fluid(48px,80px)};
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 0.4s ease-in-out, padding 0.4s ease-in-out;
+    font-size: #{fluid(12px, 14px)};
+    font-weight: 400;
+    text-align: left;
+
+    a {
+      border-radius: unset;
+      display: inline;
+      border: 0;
+      border-bottom: 1px solid var(--color-text-inverted);
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .c-sticky-icons {
+    &__items {
+      top: 32%;
+      transform: translateY(-50%);
+    }
+  }
+}

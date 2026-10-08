@@ -1,0 +1,206 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-prices {
+
+  .b__content {
+    @include grid-column(24);
+    text-align: center;
+  }
+
+  .b__items {
+    @include grid-column(24);
+  }
+
+  .b__content + .b__items {
+    margin-top: var(--spacing-xl);
+  }
+
+  // Outer grid: eine Spalte pro Item
+  .c-price {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 100%;
+    justify-content: center;
+    column-gap: var(--layout-gutter);
+    row-gap: var(--spacing-xs);
+  }
+
+  .c-price__item {
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    padding: #{fluid(20px,28px)};
+    gap: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-background-3);
+  }
+
+  &.l-background-3 {
+    .c-price__item {
+      background-color: var(--color-background-2);
+    }
+  }
+
+  .c-price__header {
+    text-align: center;
+  }
+
+  .c-price__title {
+    font-weight: 700;
+    font-size: #{fluid(16px, 20px)};
+
+    .c-headline h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-default);
+      font-weight: 700;
+      font-size: #{fluid(18px,22px)};
+    }
+  }
+
+  .c-price__description {
+    opacity: 0.7;
+    font-size: 14px;
+    margin-top: var(--spacing-xxs);
+  }
+
+  .c-price__price {
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .c-price__prefix {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: #{fluid(8px,16px)};
+    opacity: 0.7;
+  }
+
+  .c-price__free,
+  .c-price__from,
+  .c-price__separator,
+  .c-price__to {
+    font-size: #{fluid(36px, 48px)};
+    line-height: 1;
+    color: var(--color-1);
+  }
+
+  .c-price__separator {
+    width: 100%;
+    margin: #{fluid(2px, 4px)} 0  #{fluid(4px, 6px)} 0;
+    line-height: 1;
+  }
+
+  .c-price__price {
+    //margin-top: var(--spacing-md);
+  }
+
+  .c-price__text {
+    font-size: 14px;
+    //margin-top: var(--spacing-md);
+
+    .c-text ul {
+      list-style: none;
+      padding-left: 0;
+      padding-right: 0;
+
+      li {
+        position: relative;
+        margin-top: #{fluid(8px, 16px)};
+        margin-left: #{fluid(18px, 22px)};
+        padding-left: #{fluid(12px, 16px)};
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: #{fluid(1px, 2px)};
+          width: #{fluid(18px, 22px)};
+          height: #{fluid(18px, 22px)};
+          border-radius: 50%;
+          background-color: rgba(66, 138, 92, 0.1);
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M23.349 0.0155C23.3061 0.028 23.2333 0.0708 23.1873 0.1106C23.1412 0.1504 19.4749 5.2433 15.0399 11.428C10.6049 17.6127 6.9655 22.6844 6.9525 22.6983C6.9376 22.7142 5.7826 21.5779 3.8549 19.6507C1.6757 17.4722 0.7529 16.5662 0.6843 16.5379C0.2541 16.3603 -0.1484 16.8118 0.0593 17.239C0.0995 17.3216 6.4387 23.6861 6.6521 23.8581C6.8137 23.9883 6.9474 24.0255 7.1117 23.9861C7.1797 23.9698 7.2712 23.9251 7.3152 23.8867C7.3964 23.816 23.8662 0.8708 23.9502 0.7115C24.0075 0.6027 24.0077 0.3913 23.9504 0.2806C23.8348 0.057 23.5846 -0.0533 23.349 0.0155' fill='%23003B13'/%3E%3C/svg%3E");
+          background-size: 50% 50%;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(xs) {
+  .b-prices {
+    $col: calc((100% - var(--layout-gutter)) / 2);
+
+    .c-price--count-1 {
+      grid-template-columns: $col;
+    }
+
+    .c-price--count-2 {
+      grid-template-columns: repeat(2, $col);
+    }
+
+    .c-price--count-3 {
+      grid-template-columns: repeat(2, $col);
+    }
+
+    .c-price--count-4 {
+      grid-template-columns: repeat(2, $col);
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .b-prices {
+    .b__content {
+      @include grid-column(16, 4);
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .b-prices {
+    .b__content {
+      @include grid-column(12, 6);
+    }
+  }
+}
+
+@include breakpoint(xl) {
+  .b-prices {
+    $col: calc((100% - 3 * var(--layout-gutter)) / 4);
+
+    .c-price--count-1 {
+      grid-template-columns: $col;
+    }
+
+    .c-price--count-2 {
+      grid-template-columns: repeat(2, $col);
+    }
+
+    .c-price--count-3 {
+      grid-template-columns: repeat(3, $col);
+    }
+
+    .c-price--count-4 {
+      grid-template-columns: repeat(4, $col);
+    }
+  }
+}
+
+@include breakpoint(xxl) {
+  .b-prices {
+    .b__items {
+      @include grid-column(20, 2);
+    }
+  }
+}

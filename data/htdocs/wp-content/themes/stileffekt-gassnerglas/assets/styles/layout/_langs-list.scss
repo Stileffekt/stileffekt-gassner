@@ -1,0 +1,57 @@
+@use "../mixins/breakpoints" as *;
+@use "../mixins/grid" as *;
+@use "../mixins/fluid" as *;
+
+.c-lang-switcher__toggle {
+  display: none;
+}
+
+.c-lang-switcher__list {
+  display: flex !important;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: static;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.c-lang-switcher__item {
+  margin: 0;
+}
+
+.c-lang-switcher__separator {
+  margin: 0 8px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.c-lang-switcher__link {
+  display: inline;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+  font-weight: 600;
+
+  &:hover {
+    color: var(--color-1);
+  }
+
+  &:focus {
+    color: var(--color-1);
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
+  }
+
+  &--active {
+    color: var(--color-1);
+    font-weight: bold;
+  }
+}

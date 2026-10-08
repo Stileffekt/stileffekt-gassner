@@ -1,0 +1,419 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Stileffekt\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-26 14:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.7.3; wp-6.8.1; php-8.2.28\n"
+"X-Domain: stilpress"
+
+#: includes/integrations/acf/extensions/image-position/fields/image-position.php:44
+msgid "ACF_IMAGE_FIELD_NAME"
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-focus/fields/stilpress__acf_extension_image_focus_field.php:102
+msgid "Add Image"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:63
+#: includes/theme/post-types/course.php:63
+msgid "Add New Category"
+msgstr ""
+
+#: includes/theme/post-types/course.php:15
+#: includes/theme/post-types/course.php:16
+msgid "Add New Course"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:15
+#: includes/theme/post-types/quotes.php:16
+msgid "Add New Quote"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:58
+#: includes/theme/post-types/course.php:58
+msgid "All Categories"
+msgstr ""
+
+#: includes/theme/post-types/course.php:13
+msgid "All Courses"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:13
+msgid "All Quotes"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:55
+#: includes/theme/post-types/quotes.php:65
+#: includes/theme/post-types/course.php:55
+#: includes/theme/post-types/course.php:65
+msgid "Categories"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:56
+#: includes/theme/post-types/course.php:56
+msgid "Category"
+msgstr ""
+
+#: includes/integrations/acf/extensions/form/acf-form.php:12
+msgid "Contact Form"
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-position/fields/image-position.php:52
+msgid "Convert the coordinate pair to pixel instead of percentage based values"
+msgstr ""
+
+#: includes/theme/post-types/course.php:10
+msgid "Course"
+msgstr ""
+
+#: includes/theme/post-types/course.php:9
+#: includes/theme/post-types/course.php:11
+msgid "Courses"
+msgstr ""
+
+#: includes/blocks/blocks.php:10
+msgid "Custom Blocks"
+msgstr ""
+
+#: includes/integrations/acf/extensions/navigation/acf-navigation.php:37
+msgid "Default Menu"
+msgstr ""
+
+#: includes/integrations/acf/extensions/navigation/acf-navigation.php:38
+msgid "Display default menu"
+msgstr ""
+
+#. Name of the theme
+msgid "Dr. Zacher"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:61
+#: includes/theme/post-types/course.php:61
+msgid "Edit Category"
+msgstr ""
+
+#: includes/theme/post-types/course.php:17
+msgid "Edit Course"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:17
+msgid "Edit Quote"
+msgstr ""
+
+#: includes/integrations/acf/extensions/form/acf-form.php:18
+#: includes/integrations/acf/extensions/wpdatacharts/wpdatacharts.php:18
+#: includes/integrations/acf/extensions/table/acf-table.php:20
+#: includes/integrations/acf/extensions/navigation/acf-navigation.php:18
+#: includes/integrations/acf/extensions/wpdatatables/wpdatatables.php:18
+msgid "Error"
+msgstr ""
+
+#: includes/integrations/acf/extensions/icon/fields/acf-icon-picker-field.php:28
+msgid "Error!"
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-position/fields/image-position.php:34
+msgid "Error! Please click on the Image to create a coordinate pair."
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-position/fields/image-position.php:43
+msgid "Field label of image to link to"
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-focus/fields/stilpress__acf_extension_image_focus_field.php:169
+msgid "File size must be at least %d&nbsp;KB."
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-focus/fields/stilpress__acf_extension_image_focus_field.php:175
+msgid "File size must not exceed %d&nbsp;KB."
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-position/fields/image-position.php:24
+msgid "Focus Point"
+msgstr ""
+
+#: includes/blocks/b-courses/view.php:60
+msgid "from"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://www.stileffekt.de/"
+msgstr ""
+
+#: includes/integrations/acf/extensions/icon/fields/acf-icon-picker-field.php:19
+msgid "Icons"
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-position/fields/image-position.php:42
+msgid "Image Field Label"
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-focus/fields/stilpress__acf_extension_image_focus_field.php:16
+msgid "Image Focus"
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-focus/fields/stilpress__acf_extension_image_focus_field.php:167
+msgid "Image height must be at least %dpx."
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-focus/fields/stilpress__acf_extension_image_focus_field.php:173
+msgid "Image height must not exceed %dpx."
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-focus/fields/stilpress__acf_extension_image_focus_field.php:52
+msgid ""
+"Image used to create a Focus. Should be around the same image ratio as Image "
+"Size"
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-focus/fields/stilpress__acf_extension_image_focus_field.php:165
+msgid "Image width must be at least %dpx."
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-focus/fields/stilpress__acf_extension_image_focus_field.php:171
+msgid "Image width must not exceed %dpx."
+msgstr ""
+
+#: functions.php:50
+msgid "Main"
+msgstr ""
+
+#: includes/integrations/acf/extensions/navigation/acf-navigation.php:12
+msgid "Menu"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:64
+#: includes/theme/post-types/course.php:64
+msgid "New Category"
+msgstr ""
+
+#: single-post.php:48
+msgid "Next Post"
+msgstr ""
+
+#: single-project.php:49
+msgid "Next Project"
+msgstr ""
+
+#: includes/integrations/acf/extensions/table/acf-table.php:68
+#: includes/integrations/acf/extensions/table/acf-table.php:81
+#: includes/integrations/acf/extensions/table/acf-table.php:119
+msgid "No"
+msgstr ""
+
+#: includes/blocks/b-course-info/view.php:103
+msgid "No dates available."
+msgstr ""
+
+#: includes/integrations/acf/extensions/form/acf-form.php:68
+msgid "No form available"
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-focus/fields/stilpress__acf_extension_image_focus_field.php:101
+msgid "No image selected"
+msgstr ""
+
+#: includes/blocks/b-course-info/view.php:73
+msgid "No rates available."
+msgstr ""
+
+#: includes/integrations/acf/extensions/wpdatacharts/wpdatacharts.php:68
+#: includes/integrations/acf/extensions/wpdatatables/wpdatatables.php:68
+msgid "No Table available"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:20
+#: includes/theme/post-types/course.php:20
+msgid "Not Found"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:21
+#: includes/theme/post-types/course.php:21
+msgid "Not found in Trash"
+msgstr ""
+
+#: includes/integrations/acf/extensions/table/acf-table.php:66
+msgid "Optional"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:59
+#: includes/theme/post-types/course.php:59
+msgid "Parent Category"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:60
+#: includes/theme/post-types/course.php:60
+msgid "Parent Category:"
+msgstr ""
+
+#: includes/theme/post-types/course.php:12
+msgid "Parent Course"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:12
+msgid "Parent Quote"
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-position/fields/image-position.php:51
+msgid "Pixel based coordinates"
+msgstr ""
+
+#: includes/integrations/acf/extensions/table/acf-table.php:76
+msgid "Presetting the usage of table caption"
+msgstr ""
+
+#: includes/integrations/acf/extensions/table/acf-table.php:62
+msgid "Presetting the usage of table header"
+msgstr ""
+
+#: includes/integrations/acf/extensions/image-focus/fields/stilpress__acf_extension_image_focus_field.php:51
+msgid "Preview Size"
+msgstr ""
+
+#: single-post.php:36
+msgid "Previous Post"
+msgstr ""
+
+#: single-project.php:37
+msgid "Previous Project"
+msgstr ""
+
+#: includes/blocks/b-courses/view.php:60
+msgid "Price on request"
+msgstr ""
+
+#: header.php:22
+msgid "Primary Navigation"
+msgstr ""
+
+#: header.php:37
+msgid "Primary Navigation Toggle"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:10
+msgid "Quote"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:9
+#: includes/theme/post-types/quotes.php:11
+msgid "Quotes"
+msgstr ""
+
+#: includes/blocks/b-courses/view.php:56
+msgid "Rate"
+msgstr ""
+
+#: includes/blocks/b-course-info/view.php:58
+msgid "Rates"
+msgstr ""
+
+#: includes/integrations/acf/extensions/icon/fields/acf-icon-picker-field.php:111
+msgid "Remove"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:57
+#: includes/theme/post-types/course.php:57
+msgid "Search Categories"
+msgstr ""
+
+#: includes/theme/post-types/course.php:19
+msgid "Search Courses"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:19
+msgid "Search Quotes"
+msgstr ""
+
+#: functions.php:51
+msgid "Socket"
+msgstr ""
+
+#: footer.php:51
+msgid "Socket Navigation"
+msgstr ""
+
+#. Author of the theme
+msgid "Stileffekt GmbH"
+msgstr ""
+
+#: includes/integrations/acf/extensions/table/acf-table.php:12
+msgid "Table"
+msgstr ""
+
+#: includes/integrations/acf/extensions/table/acf-table.php:75
+msgid "Table Caption"
+msgstr ""
+
+#: includes/integrations/acf/extensions/table/acf-table.php:132
+msgid "table caption"
+msgstr ""
+
+#: includes/integrations/acf/extensions/table/acf-table.php:61
+msgid "Table Header"
+msgstr ""
+
+#: includes/integrations/acf/extensions/icon/fields/acf-icon-picker-field.php:129
+msgid "There are no icos Uploaded in the Theme Settings"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:62
+#: includes/theme/post-types/course.php:62
+msgid "Update Category"
+msgstr ""
+
+#: includes/theme/post-types/course.php:18
+msgid "Update Course"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:18
+msgid "Update Quote"
+msgstr ""
+
+#: includes/integrations/acf/extensions/table/acf-table.php:117
+msgid "use table header"
+msgstr ""
+
+#: includes/theme/post-types/course.php:14
+msgid "View Course"
+msgstr ""
+
+#: includes/theme/post-types/quotes.php:14
+msgid "View Quote"
+msgstr ""
+
+#: functions.php:52
+msgid "Widgets"
+msgstr ""
+
+#. Description of the theme
+msgid ""
+"WordPress Theme for Dr. Zacher Komminikationsberatung &amp; Business Akademie"
+msgstr ""
+
+#: includes/blocks/b-course-info/view.php:85
+msgid "Workshop Dates"
+msgstr ""
+
+#: includes/integrations/acf/extensions/wpdatacharts/wpdatacharts.php:12
+msgid "wpDataCharts"
+msgstr ""
+
+#: includes/integrations/acf/extensions/wpdatatables/wpdatatables.php:12
+msgid "wpDataTables"
+msgstr ""
+
+#: includes/integrations/acf/extensions/table/acf-table.php:67
+#: includes/integrations/acf/extensions/table/acf-table.php:80
+#: includes/integrations/acf/extensions/table/acf-table.php:120
+msgid "Yes"
+msgstr ""

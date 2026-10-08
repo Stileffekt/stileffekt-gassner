@@ -1,0 +1,29 @@
+@use "../mixins/breakpoints" as *;
+@use "../mixins/grid" as *;
+@use "../mixins/fluid" as *;
+
+.c-headline {
+  position: relative;
+  margin-top: var(--spacing-sm);
+  color: var(--color-headline);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.c-overline + .c-headline {
+  margin-top: var(--spacing-xxs)
+}
+
+.footer {
+  .c-headline {
+    min-height: #{fluid(28px, 52px)};
+    margin-bottom: #{fluid(12px, 24px)};
+    color: var(--color-text-inverted);
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-default);
+    }
+  }
+}

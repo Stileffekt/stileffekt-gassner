@@ -1,0 +1,92 @@
+{
+    "key": "group_b_iframe",
+    "title": "iFrame",
+    "fields": [
+        {
+            "key": "field_b_iframe__overline",
+            "label": "Overline",
+            "name": "b-iframe__overline",
+            "type": "text",
+            "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_b_iframe__headline",
+            "label": "Headline",
+            "name": "b-iframe__headline",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            },
+            "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_b_iframe__headline_type",
+            "label": "Headline Type",
+            "name": "b-iframe__headline_type",
+            "type": "select",
+            "wrapper": {
+                "width": "25"
+            },
+            "choices": {
+                "h1": "h1",
+                "h2": "h2",
+                "h3": "h3",
+                "h4": "h4",
+                "h5": "h5",
+                "h6": "h6"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_b_iframe__headline_style",
+            "label": "Headline Style",
+            "name": "b-iframe__headline_style",
+            "type": "select",
+            "wrapper": {
+                "width": "25"
+            },
+            "choices": {
+                "h1": "h1",
+                "h2": "h2",
+                "h3": "h3",
+                "h4": "h4",
+                "h5": "h5",
+                "h6": "h6"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_b_iframe__text",
+            "label": "Text",
+            "name": "b-iframe__text",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_b_iframe__url",
+            "label": "URL",
+            "name": "b-iframe__url",
+            "type": "url",
+            "wpml_cf_preferences": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "stilpress/b-iframe"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0,
+    "modified": 1791200875
+}

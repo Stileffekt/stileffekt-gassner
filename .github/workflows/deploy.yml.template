@@ -1,0 +1,87 @@
+name: Build and Deploy Theme
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Manuelles Triggern möglich
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Find theme directory
+        id: find-theme
+        run: |
+          THEME_DIR=$(find . -maxdepth 1 -type d -name "stileffekt-*" | head -1)
+          if [ -z "$THEME_DIR" ]; then
+            echo "❌ Kein Theme-Verzeichnis gefunden (stileffekt-*)"
+            exit 1
+          fi
+          echo "theme_dir=$THEME_DIR" >> $GITHUB_OUTPUT
+          echo "theme_name=$(basename $THEME_DIR)" >> $GITHUB_OUTPUT
+          echo "✅ Theme gefunden: $THEME_DIR"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Sass
+        run: npm install -g sass
+
+      - name: Compile SCSS to CSS
+        run: |
+          THEME_DIR="${{ steps.find-theme.outputs.theme_dir }}"
+          SCSS_DIR="$THEME_DIR/assets/css"
+
+          if [ ! -d "$SCSS_DIR" ]; then
+            echo "⚠️  Kein SCSS-Verzeichnis gefunden: $SCSS_DIR"
+            echo "Überspringe SCSS-Kompilierung"
+            exit 0
+          fi
+
+          echo "🔨 Kompiliere SCSS in: $SCSS_DIR"
+
+          # Finde alle .scss Dateien (außer partials mit _)
+          find "$SCSS_DIR" -name "*.scss" ! -name "_*" -type f | while read scss_file; do
+            css_file="${scss_file%.scss}.css"
+            echo "  ↳ $(basename $scss_file) → $(basename $css_file)"
+            sass "$scss_file" "$css_file" --style compressed --no-source-map
+          done
+
+          echo "✅ SCSS-Kompilierung abgeschlossen"
+
+      - name: Deploy via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.SFTP_SERVER }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: ${{ secrets.SFTP_PORT || 22 }}
+          protocol: ${{ secrets.SFTP_PROTOCOL || 'ftps' }}
+          local-dir: ${{ steps.find-theme.outputs.theme_dir }}/
+          server-dir: ${{ secrets.SFTP_REMOTE_DIR }}
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
+            **/Thumbs.db
+            **/*.scss
+            **/package*.json
+
+      - name: Deployment Summary
+        run: |
+          echo "### 🚀 Deployment erfolgreich!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Theme:** ${{ steps.find-theme.outputs.theme_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Server:** ${{ secrets.SFTP_SERVER }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Zielverzeichnis:** ${{ secrets.SFTP_REMOTE_DIR }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Alle Dateien wurden erfolgreich hochgeladen" >> $GITHUB_STEP_SUMMARY

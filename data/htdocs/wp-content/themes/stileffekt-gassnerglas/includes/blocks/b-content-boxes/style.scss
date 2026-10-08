@@ -1,0 +1,125 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+
+.b-content-boxes {
+  position: relative;
+
+  .b__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.05;
+
+    .c-media--fit-cover,
+    .c-media--fit-contain {
+      aspect-ratio: unset;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .b__content {
+    position: relative;
+    z-index: 1;
+    @include grid-column(24);
+    text-align: center;
+  }
+
+  .b__boxes {
+    @include grid-column(24);
+  }
+
+  .b__content + .b__boxes {
+    margin-top: var(--spacing-xl);
+  }
+
+  .c-boxes {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--layout-gutter);
+  }
+
+  .c-box {
+    padding: var(--spacing-sm);
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+    min-width: 0;
+    white-space: normal;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    align-items: center;
+
+    .c-headline {
+      width: 100%;
+      font-size: #{fluid(18px,20px)};
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-default);
+      }
+    }
+
+    .c-text {
+      width: 100%;
+
+      a {
+        color: inherit;
+        border-color: inherit;
+      }
+
+      ul {
+        li:before {
+          transition: background-color 0.4s ease-in-out;
+          background-color: var(--color-text-inverted);
+        }
+      }
+    }
+
+    .c-icon {
+      width: #{fluid(56px,64px)};
+      height: #{fluid(56px,64px)};
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      svg {
+        width: #{fluid(20px,24px)};
+        height: #{fluid(20px,24px)};
+      }
+    }
+
+  }
+
+}
+
+@include breakpoint(xs) {
+  .b-content-boxes {
+    .c-boxes {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .b-content-boxes {
+    .b__content {
+      @include grid-column(12, 6);
+    }
+  }
+}
+
+@include breakpoint(xl) {
+  .b-content-boxes {
+    .b__boxes {
+    }
+
+    .c-boxes {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

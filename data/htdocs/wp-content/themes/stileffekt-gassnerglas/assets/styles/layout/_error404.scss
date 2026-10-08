@@ -1,0 +1,52 @@
+@use "../mixins/breakpoints" as *;
+@use "../mixins/grid" as *;
+@use "../mixins/fluid" as *;
+
+.error-404 {
+  padding: #{fluid(8px, 160px)} 0;
+  text-align: center;
+
+  div:not(.c-content) > .l-grid > .l-grid__item {
+    @include grid-column(24);
+    align-items: center;
+    display: flex;
+  }
+
+  .c-content {
+    margin-top: #{fluid(48px, 96px)};
+    width: 100%;
+  }
+
+  &__buttons {
+    margin-top: #{fluid(24px,48px)};
+  }
+
+  &__subline {
+    font-weight: 800;
+    font-size: #{fluid(24px,48px)};
+    margin-top: #{fluid(8px,16px)};
+  }
+
+  &__text {
+    margin-top: #{fluid(16px,32px)};
+  }
+
+  &__headline h1 {
+    color: var(--color-1);
+    font-weight: 800;
+    font-size: #{fluid(96px,192px)};
+    line-height: 1.1;
+  }
+
+  @include breakpoint(md) {
+
+    div:not(.c-content) > .l-grid > .l-grid__item { //media column
+      @include grid-column(12, 6);
+    }
+
+    .c-content {
+      margin-top: 0;
+    }
+
+  }
+}

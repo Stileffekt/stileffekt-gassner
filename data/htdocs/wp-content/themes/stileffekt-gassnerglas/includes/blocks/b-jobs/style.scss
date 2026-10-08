@@ -1,0 +1,103 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-jobs {
+  .b__content {
+    @include grid-column(24);
+  }
+
+  .b__jobs {
+    @include grid-column(24);
+  }
+
+  .b__content + .b__jobs {
+    margin-top: var(--spacing)
+  }
+
+  .c-jobs {
+
+  }
+
+  .c-jobs__item {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: #{fluid(8px, 16px)};
+    border-top: 1px solid var(--border-color);
+    padding: #{fluid(16px,32px)};
+    padding-right: calc(#{fluid(64px,96px)});
+
+    &:last-child {
+      border-bottom: 1px solid var(--border-color);
+    }
+  }
+
+  .c-jobs__type {
+    width: 100%;
+  }
+
+  .c-jobs__title {
+    color: var(--color-1);
+    font-weight: 500;
+    width: 100%;
+    margin-top: #{fluid(4px,8px)};
+  }
+
+  .c-jobs__icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    .c-icon {
+      width: #{fluid(24px,32px)};
+      height: #{fluid(24px,32px)};
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .b-jobs {
+    .b__content {
+      @include grid-column(20, 2);
+    }
+
+    .b__jobs {
+      @include grid-column(20, 2);
+    }
+  }
+}
+
+@include breakpoint(lg) {
+  .b-jobs {
+    .b__content {
+      @include grid-column(16, 4);
+    }
+
+    .b__jobs {
+      @include grid-column(16, 4);
+    }
+
+    .c-jobs__item {
+      display: grid;
+      flex-flow: unset;
+      grid-template-columns: 2fr 1fr;
+
+      &:last-child {
+        border-bottom: 1px solid var(--border-color);
+      }
+    }
+
+    .c-jobs__title {
+      order: 1;
+      width: unset;
+      margin: unset;
+    }
+
+    .c-jobs__type {
+      order: 2;
+      width: unset;
+    }
+  }
+}

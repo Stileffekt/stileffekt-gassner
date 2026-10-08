@@ -1,0 +1,77 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-text-image {
+  position: relative;
+
+  .b__content {
+    @include grid-column(24);
+    order: 1;
+  }
+
+  .b__image {
+    @include grid-column(24);
+    position: relative;
+    order: 2;
+    margin-top: var(--spacing-xxl);
+
+    .c-media--fit-cover,
+    .c-media--fit-contain {
+      --media-aspect-ratio: 343/293;
+      overflow: hidden;
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .b-text-image {
+
+    .b__content {
+      @include grid-column(20, 2);
+    }
+
+    .b__image {
+      @include grid-column(20, 2);
+    }
+
+  }
+}
+
+@include breakpoint(md) {
+  .b-text-image {
+
+    .b__content {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      @include grid-column(12);
+      order: 1;
+      padding: #{fluid(24px, 40px, 1024px, 1920px)} 0;
+    }
+
+    .b__image {
+      order: 2;
+      @include grid-column(10, 2);
+      margin-top: 0;
+
+      .c-media--fit-cover,
+      .c-media--fit-contain {
+        min-height: 100%;
+        aspect-ratio: unset;
+      }
+    }
+
+    &.media-position-left {
+      .b__content {
+        order: 2;
+        @include grid-column(12, 2);
+      }
+
+      .b__image {
+        order: 1;
+        @include grid-column(10);
+      }
+    }
+  }
+}

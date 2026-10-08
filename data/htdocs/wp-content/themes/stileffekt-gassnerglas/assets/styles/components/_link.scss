@@ -1,0 +1,38 @@
+@use "../mixins/fluid" as *;
+
+.c-links {
+  display: flex;
+  flex-flow: row wrap;
+  gap: #{fluid(20px, 40px)};
+  margin-top: var(--spacing-sm);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.c-link {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  font-size: #{fluid(14px,20px)};
+  gap: fluid(8px, 16px);
+  font-weight: 700;
+  color: var(--color-1);
+
+  span {
+    display: inline-block;
+    line-height: 1.5;
+  }
+
+  .c-icon {
+    width: fluid(16px, 24px);
+    height: fluid(16px, 24px);
+  }
+
+  &:hover, &:focus, &:focus-within {
+
+  }
+}
+

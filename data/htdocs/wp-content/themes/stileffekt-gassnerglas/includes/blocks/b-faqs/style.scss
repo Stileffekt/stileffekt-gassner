@@ -1,0 +1,137 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-faqs {
+
+  .b__content {
+    @include grid-column(24);
+    text-align: center;
+  }
+
+  .b__faqs {
+    @include grid-column(24);
+  }
+
+  .b__content + .b__faqs {
+    margin-top: var(--spacing-md);
+  }
+
+  .b__content:has(.c-text) + .b__faqs {
+    margin-top: var(--spacing-xxl);
+  }
+
+  .c-faq {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+
+    &__list {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: var(--spacing-xl);
+    }
+
+    &__group {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: var(--spacing-xs);
+    }
+
+    &__category {
+      margin: 0;
+    }
+
+    &__header {
+      margin: 0;
+      padding: 0;
+      font-size: inherit;
+      font-weight: inherit;
+    }
+
+    &__button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: #{fluid(16px, 20px)} #{fluid(24px, 40px)};
+      width: 100%;
+      background: transparent;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      position: relative;
+    }
+
+    &__question {
+      padding: #{fluid(8px,12px)} 0;
+      margin-right: #{fluid(32px, 64px)};
+      font-size: #{fluid(14px, 18px)};
+      user-select: none;
+      font-weight: 400;
+      font-family: var(--font-default);
+    }
+
+    &__content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 #{fluid(24px, 40px)};
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+    }
+
+    &__answer {
+      padding-bottom: #{fluid(24px, 32px)};
+    }
+
+    &__indicator {
+      width: #{fluid(12px, 20px)};
+      height: #{fluid(12px, 20px)};
+      flex-shrink: 0;
+
+      .c-icon {
+        width: 100%;
+        aspect-ratio: 1;
+        transform: rotate(0deg);
+        transition: transform 0.3s ease;
+
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
+      }
+    }
+
+    &--active {
+      .c-faq__indicator {
+        .c-icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .b-faqs {
+    .b__content {
+      @include grid-column(16, 4);
+    }
+
+    .b__faqs {
+      @include grid-column(20, 2);
+    }
+  }
+}
+
+@include breakpoint(lg) {
+  .b-faqs {
+    .b__content {
+      @include grid-column(10, 7);
+    }
+
+    .b__faqs {
+      @include grid-column(16, 4);
+    }
+  }
+}

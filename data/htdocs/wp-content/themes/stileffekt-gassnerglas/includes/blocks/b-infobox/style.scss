@@ -1,0 +1,26 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-infobox {
+  .b__content {
+    background-color: var(--color-1);
+    @include grid-column(24);
+  }
+}
+
+@include breakpoint(sm) {
+  .b-infobox {
+    .b__content {
+      @include grid-column(20, 2);
+    }
+  }
+}
+
+@include breakpoint(lg) {
+  .b-infobox {
+    .b__content {
+      @include grid-column(16, 4);
+    }
+  }
+}

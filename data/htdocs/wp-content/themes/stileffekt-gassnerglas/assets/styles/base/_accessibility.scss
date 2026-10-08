@@ -1,0 +1,68 @@
+.skip-link {
+  position: absolute;
+  top: -1000em;
+  left: 6px;
+  height: auto;
+  width: auto;
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 23px 14px;
+  background: #f0f0f1;
+  color: #2271b1;
+  z-index: 100000;
+  line-height: normal;
+  text-decoration: none;
+
+  &:focus {
+    top: 7px;
+    background: #f0f0f1;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .6);
+  }
+}
+
+.screen-reader-text,
+.screen-reader-response {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+:is(a, button, input, textarea, summary) {
+  --outline-size: 2px;
+  --outline-style: solid;
+  --outline-color: var(--color-1);
+  --outline-color-inverted: var(--color-background-1);
+}
+
+:is(a):focus {
+  color: var(--color-1);
+}
+
+:is(a, button, input, textarea, summary):focus {
+  outline: var(--outline-size) var(--outline-style) var(--outline-color);
+  outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+:is(a, button, input, textarea, summary):focus-visible {
+  outline: var(--outline-size) var(--outline-style) var(--outline-color);
+  outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+:is(a, button, input, textarea, summary):focus:not(:focus-visible) {
+  outline: none;
+}
+
+.background-color-red {
+  :is(a, button, input, textarea, summary):focus,
+  :is(a, button, input, textarea, summary):focus-visible {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color-inverted);
+  }
+}

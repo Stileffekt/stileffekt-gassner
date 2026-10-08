@@ -1,0 +1,25 @@
+{
+  "name": "stilpress/b-content-boxes",
+  "title": "Content Boxes",
+  "description": "",
+  "style": "file:./style.css",
+  "category": "stilpress-all",
+  "icon": "block-default",
+  "apiVersion": 3,
+  "keywords": [
+    "box",
+    "card"
+  ],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "className": true,
+    "customClassName": true,
+    "alignContent": false
+  },
+  "acf": {
+    "hideFieldsInSidebar": true,
+    "blockVersion": 3,
+    "renderTemplate": "block.php"
+  }
+}

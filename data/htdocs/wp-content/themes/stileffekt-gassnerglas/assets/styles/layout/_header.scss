@@ -1,0 +1,156 @@
+@use "../mixins/breakpoints" as *;
+@use "../mixins/grid" as *;
+@use "../mixins/fluid" as *;
+
+.header {
+  background-color: var(--color-8);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 11;
+  transition: background-color 0.4s ease-in-out;
+  height: calc(var(--header-height));
+
+  .l-width {
+    height: 100%;
+  }
+
+  .header__row {
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .header__logo {
+    --logo-margin: 16px;
+    position: relative;
+    z-index: 10;
+    order: 1;
+
+    img {
+      height: calc(var(--header-height) - (var(--logo-margin) * 2));
+      width: auto;
+      margin: var(--logo-margin) 0;
+    }
+
+    span, a {
+      display: flex;
+    }
+  }
+
+  .header__navigation {
+    order: 3;
+  }
+
+  .header__cta {
+    order: 3;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .header__search {
+    order: 4;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: #{fluid(32px,48px)};
+    cursor: pointer;
+
+    .c-icon {
+      height: 32px;
+      width: 32px;
+    }
+
+    &:hover .c-icon {
+      svg path {
+        fill: var(--color-1);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-1);
+      outline-offset: 2px;
+    }
+  }
+
+
+  .header__languages {
+    order: 2;
+    margin-left: auto;
+    align-content: center;
+  }
+
+  .header__toggle {
+    order: 4;
+    margin-left: 32px;
+  }
+
+  &--scrolled {
+    background-color: var(--color-8);
+  }
+
+  &--hidden {
+    transform: translateY(-100%);
+    visibility: hidden;
+    transition: transform 0.4s ease-in-out, visibility 0s 0.4s;
+  }
+
+  &--visible {
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform 0.4s ease-in-out, visibility 0s 0s;
+  }
+
+}
+
+@include breakpoint(menu) {
+
+  .header {
+
+    .header__row {
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    .header__logo {
+      img {
+        height: calc(var(--header-height) - (var(--logo-margin) * 2));
+      }
+    }
+
+    .header__cta {
+      margin-left: #{fluid(32px,48px)};
+    }
+
+    .header__languages {
+      order: 5;
+      margin-left: #{fluid(48px, 64px, 1024px, 1920px)};
+    }
+
+    .c-navigation--main {
+      margin-left: auto;
+    }
+  }
+}
+
+// wordpress admin bar fix
+.admin-bar .header {
+  margin-top: var(--admin-bar);
+}
+
+.admin-bar .header.header--scrolled {
+  margin-top: 0;
+}
+
+@include breakpoint(menu) {
+  .admin-bar .header {
+    margin-top: var(--admin-bar);
+  }
+  .admin-bar .header.header--scrolled {
+    margin-top: var(--admin-bar);
+  }
+}

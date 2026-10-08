@@ -1,0 +1,22 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.w-logos {
+
+  .c-logos {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--layout-gutter);
+  }
+
+  .c-media {
+    width: #{fluid(48px, 72px)};
+  }
+
+  .c-media--fit-cover,
+  .c-media--fit-contain {
+    --media-aspect-ratio: 1;
+  }
+
+}

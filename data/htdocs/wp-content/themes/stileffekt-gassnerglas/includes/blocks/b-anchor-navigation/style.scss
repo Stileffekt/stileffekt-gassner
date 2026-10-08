@@ -1,0 +1,77 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-anchor-navigation {
+
+  .b__anchor-navigation {
+    @include grid-column(24);
+  }
+
+  .c-anchor-navigation {
+    display: flex;
+    flex-flow: column;
+    gap: 2px;
+    background-color: var(--color-background-2);
+  }
+
+  .c-anchor-navigation {
+    background-color: var(--color-background-2);
+    padding: var(--spacing-md);
+    overflow: hidden;
+    font-size: #{fluid(18px, 28px)};
+  }
+
+  .c-anchor-navigation__list {
+    ol li::marker {
+      color: var(--color-text);
+      font-weight: 700;
+    }
+
+    ul li::marker, ol li::marker {
+      color: var(--color-text);
+      font-weight: 700;
+    }
+
+    a {
+      color: var(--color-text);
+      font-weight: 700;
+      text-decoration: none;
+
+      &:hover, &:focus, &:active {
+        color: var(--color-2);
+      }
+    }
+  }
+
+  .c-anchor-navigation__item {
+    width: auto;
+    flex: 1 1 auto;
+  }
+}
+
+
+@include breakpoint(md) {
+  .b-anchor-navigation {
+    .b__anchor-navigation {
+      @include grid-column(20, 2);
+    }
+  }
+}
+
+
+@include breakpoint(xl) {
+  .b-anchor-navigation {
+    .b__anchor-navigation {
+      @include grid-column(16, 4);
+    }
+  }
+}
+
+@include breakpoint(xxl) {
+  .b-anchor-navigation {
+    .b__anchor-navigation {
+      @include grid-column(12, 6);
+    }
+  }
+}

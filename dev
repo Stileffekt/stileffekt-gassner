@@ -1,0 +1,120 @@
+#!/bin/bash
+
+# WordPress Development Environment CLI
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+show_help() {
+    echo "WordPress Development Environment"
+    echo ""
+    echo "Verwendung: ./dev.sh <command>"
+    echo ""
+    echo "Commands:"
+    echo "  start    Startet Container, WordPress, Theme und Browser-Sync"
+    echo "  stop     Stoppt alle Container"
+    echo "  reset    Löscht alle Daten (Datenbank + WordPress)"
+    echo "  logs     Zeigt Container-Logs"
+    echo "  status   Zeigt Container-Status"
+    echo ""
+}
+
+case "$1" in
+    start)
+        source "$SCRIPT_DIR/scripts/lib.sh"
+        load_env
+
+        export USER_ID=$(id -u)
+        export GROUP_ID=$(id -g)
+
+        # Prüfe ob dies ein frischer Template-Klon ist (nur bei erster Installation)
+        # Schutz: .dev-instance verhindert Reinit im Template-Entwicklungs-Repo
+        if ! is_wordpress_installed && [ -d ".git" ] && [ ! -f ".dev-instance" ]; then
+            ORIGIN=$(git remote get-url origin 2>/dev/null)
+
+            if echo "$ORIGIN" | grep -q "Stileffekt/env-docker"; then
+                CURRENT_DIR=$(basename "$PWD")
+                echo "Template-Klon erkannt: $CURRENT_DIR"
+                echo "Entferne Template-Repository und erstelle neues Git-Repo..."
+                rm -rf .git
+                git init
+                git add .
+                git commit -m "init $CURRENT_DIR"
+                echo ""
+            fi
+        fi
+
+        require_stopped_containers
+
+        # Port-Checks
+        PORTS_OK=true
+        check_port $WP_PORT "WordPress" || PORTS_OK=false
+        check_port $DB_PORT "MySQL" || PORTS_OK=false
+        check_port $PMA_PORT "PHPMyAdmin" || PORTS_OK=false
+        [ "$PORTS_OK" = false ] && exit 1
+
+        # Daten-Ordner erstellen
+        mkdir -p data/htdocs data/mysql
+        chown $USER_ID:$GROUP_ID data/htdocs data/mysql 2>/dev/null || true
+        chmod 775 data/htdocs data/mysql
+
+        echo "Starte Docker Container..."
+        docker compose up -d --wait || { echo "Fehler: Container konnten nicht gestartet werden"; exit 1; }
+
+        wait_for_wordpress || exit 1
+
+        ./scripts/fix-permissions.sh
+        ./scripts/install-wp.sh
+        ./scripts/install-theme.sh
+
+        echo ""
+        echo "URLs:"
+        echo "  WordPress:   http://localhost:${WP_PORT}"
+        echo "  PHPMyAdmin:  http://localhost:${PMA_PORT}"
+        echo ""
+
+        start_browser_sync
+        ;;
+
+    stop)
+        echo "Stoppe Container..."
+        docker compose down
+        pkill -f "browser-sync" 2>/dev/null && echo "Browser-Sync gestoppt." || true
+        ;;
+
+    reset)
+        source "$SCRIPT_DIR/scripts/lib.sh"
+
+        echo "WordPress Development Environment Reset"
+        echo ""
+        echo "WARNUNG: Dies löscht alle Daten unwiderruflich!"
+        echo "  - MySQL Datenbank"
+        echo "  - WordPress Dateien (htdocs)"
+        echo ""
+        read -p "Bist du sicher? (j/N): " -n 1 -r
+        echo
+
+        [[ ! $REPLY =~ ^[Jj]$ ]] && echo "Abgebrochen." && exit 0
+
+        # Container stoppen falls sie laufen
+        [ -n "$(docker compose ps -q 2>/dev/null)" ] && echo "Stoppe Container..." && docker compose down
+
+        # Daten löschen
+        echo "Lösche Daten..."
+        remove_dir "data/mysql" || exit 1
+        remove_dir "data/htdocs" || exit 1
+
+        echo ""
+        echo "Reset abgeschlossen. Neu starten mit: ./dev start"
+        ;;
+
+    logs)
+        docker compose logs -f "${@:2}"
+        ;;
+
+    status)
+        docker compose ps
+        ;;
+
+    *)
+        show_help
+        ;;
+esac

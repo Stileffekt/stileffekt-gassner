@@ -1,0 +1,26 @@
+{
+  "name": "stilpress/b-text",
+  "title": "Text",
+  "description": "",
+  "style": [
+    "file:./style.css"
+  ],
+  "category": "stilpress-all",
+  "icon": "block-default",
+  "keywords": [
+    "text"
+  ],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "className": true,
+    "customClassName": true,
+    "alignContent": false
+  },
+  "apiVersion": 3,
+  "acf": {
+    "hideFieldsInSidebar": true,
+    "blockVersion": 3,
+    "renderTemplate": "block.php"
+  }
+}

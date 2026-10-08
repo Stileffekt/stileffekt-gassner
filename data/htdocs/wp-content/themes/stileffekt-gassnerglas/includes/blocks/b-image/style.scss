@@ -1,0 +1,14 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-image {
+  .b__image {
+    @include grid-column(24);
+
+    .c-media--fit-cover,
+    .c-media--fit-contain {
+      --media-aspect-ratio: 1000/440;
+    }
+  }
+}

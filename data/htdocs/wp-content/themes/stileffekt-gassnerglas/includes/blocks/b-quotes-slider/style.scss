@@ -1,0 +1,78 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-quotes-slider {
+
+  .b__content {
+    @include grid-column(24);
+  }
+
+  .b__quotes {
+    @include grid-column(24);
+  }
+
+  .b__content + .b__quotes {
+    margin-top: var(--spacing-md);
+  }
+
+  .c-quote {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .c-quote__inner {
+    border-radius: var(--border-radius-lg);
+    padding: #{fluid(16px,32px)};
+    margin: 1px;
+    border: 1px solid var(--color-1);
+  }
+
+  .c-quote__author {
+    margin-top: var(--spacing-sm);
+  }
+
+  .splide__controls {
+    margin-top: var(--spacing-xl);
+  }
+
+}
+
+@include breakpoint(sm) {
+  .b-quotes-slider {
+    .b__content {
+      @include grid-column(16, 4);
+    }
+
+    .b__quotes {
+      @include grid-column(20, 2);
+    }
+  }
+}
+
+@include breakpoint(lg) {
+  .b-quotes-slider {
+
+    .b__content {
+      @include grid-column(16, 4);
+    }
+
+    .b__quotes {
+      @include grid-column(14, 5);
+    }
+
+    .splide__controls {
+      width: unset;
+      margin-top: 0;
+      position: absolute;
+      top: 50%;
+      left: calc((#{grid-column-width(1)} * -1) - var(--layout-gutter));
+      right: calc((#{grid-column-width(1)} * -1) - var(--layout-gutter));
+      transform: translateY(-50%);
+
+      .splide__arrows {
+        width: 100%;
+      }
+    }
+  }
+}

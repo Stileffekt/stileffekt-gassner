@@ -1,0 +1,134 @@
+@use "../mixins/breakpoints" as *;
+@use "../mixins/grid" as *;
+@use "../mixins/fluid" as *;
+
+@include breakpoint(menu, 'max') {
+
+  .c-navigation--main {
+    display: block;
+    background-color: var(--color-background-2);
+    color: var(--color-text-inverted);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 100%;
+    height: 100svh;
+    z-index: 9;
+    transition: left 0.4s ease-in-out 0s;
+
+    .c-navigation__back {
+      display: inline-flex;
+      flex-flow: row nowrap;
+      align-content: center;
+      cursor: pointer;
+
+      .c-icon {
+        transform: rotate(90deg);
+      }
+
+      span {
+        margin-left: 12px;
+      }
+    }
+
+    .c-navigation__list,
+    .c-navigation__submenu {
+      position: absolute;
+      top: #{fluid(128px, 160px)};
+      right: 0;
+      bottom: 0;
+      left: 100%;
+      transition: left 0.4s ease-in-out 0s;
+      z-index: 4;
+      height: calc(100% - 100px);
+      width: 100%;
+      overflow-y: auto;
+      overflow-x: clip;
+      padding: var(--layout-offset);
+      display: flex;
+      flex-flow: column;
+      background: var(--color-background-2);
+      list-style: none;
+      margin: 0;
+
+      .c-navigation__item {
+        margin-top: 32px;
+      }
+
+      .c-navigation__item--has-children .c-navigation__toggle,
+      .c-navigation__item--has-children .c-navigation__link,
+      .c-navigation__item .c-navigation__link:not(.c-button) {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        width: 100%;
+        color: var(--color-1);
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .c-navigation__item .c-button {
+        display: inline-flex;
+        font-size: 18px;
+
+        &:after {
+          width: 100%;
+          background-color: var(--color-2);
+        }
+
+        &:hover span {
+          color: var(--color-text);
+        }
+      }
+    }
+
+    .c-navigation__toggle[aria-expanded="true"] + .c-navigation__submenu {
+      left: 0;
+    }
+
+    .c-navigation__toggle {
+      background: none;
+      border: none;
+      padding: 0;
+
+      &:focus-visible {
+        outline: 2px solid var(--color-1);
+        outline-offset: 2px;
+      }
+    }
+
+    .c-navigation__link:focus-visible {
+      outline: 2px solid var(--color-1);
+      outline-offset: 2px;
+    }
+
+    .c-icon {
+      width: 20px;
+      height: 20px;
+      transform: rotate(-90deg);
+
+      path {
+        fill: var(--color-text-inverted);
+      }
+    }
+  }
+
+  .header {
+    overflow-x: clip;
+
+    &.nav-active {
+      .c-navigation--main {
+        left: 0;
+        transition: left 0.4s ease-in-out 0s;
+
+        > .c-navigation__list {
+          left: 0;
+          transition: left 0.4s ease-in-out 0.2s;
+        }
+      }
+    }
+  }
+}

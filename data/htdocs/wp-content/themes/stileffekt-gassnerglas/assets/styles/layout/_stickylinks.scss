@@ -1,0 +1,72 @@
+@use "../mixins/breakpoints" as *;
+@use "../mixins/grid" as *;
+@use "../mixins/fluid" as *;
+
+.c-sticky-links {
+  position: fixed;
+  z-index: 9;
+  top: 50vh;
+  transform: translateY(-50%);
+  right: 0;
+  width: 100%;
+  pointer-events: none;
+
+  &__item {
+    margin-bottom: #{fluid(4px,8px)};
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-content: flex-end;
+
+
+    &:hover {
+      .c-sticky-links__text {
+        max-width: 400px;
+        padding: #{fluid(8px,12px)};
+      }
+    }
+  }
+
+  a {
+    background-color: var(--color-2);
+    pointer-events: all;
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: row nowrap;
+  }
+
+  &__icon {
+    width: #{fluid(40px,48px)};
+    height: #{fluid(40px,48px)};
+    padding: #{fluid(8px,12px)};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+
+    .c-icon {
+      width: #{fluid(20px,28px)};
+      height: #{fluid(20px,28px)};
+
+      svg path {
+        fill: var(--color-text);
+      }
+    }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 1;
+    height: #{fluid(40px,48px)};
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 0.4s ease-in-out, padding 0.4s ease-in-out;
+  }
+
+}

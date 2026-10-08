@@ -1,0 +1,149 @@
+{
+    "key": "group_b_quotes",
+    "title": "Quotes",
+    "fields": [
+        {
+            "key": "field_b_quotes__overline",
+            "label": "Overline",
+            "name": "b-quotes__overline",
+            "type": "text",
+            "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_b_quotes__headline",
+            "label": "Headline",
+            "name": "b-quotes__headline",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            },
+            "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_b_quotes__headline_type",
+            "label": "Headline Type",
+            "name": "b-quotes__headline_type",
+            "type": "select",
+            "wrapper": {
+                "width": "25"
+            },
+            "choices": {
+                "h1": "h1",
+                "h2": "h2",
+                "h3": "h3",
+                "h4": "h4",
+                "h5": "h5",
+                "h6": "h6"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_b_quotes__headline_style",
+            "label": "Headline Style",
+            "name": "b-quotes__headline_style",
+            "type": "select",
+            "wrapper": {
+                "width": "25"
+            },
+            "choices": {
+                "h1": "h1",
+                "h2": "h2",
+                "h3": "h3",
+                "h4": "h4",
+                "h5": "h5",
+                "h6": "h6"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_b_quotes__text",
+            "label": "Text",
+            "name": "b-quotes__text",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_b_quotes__items_by",
+            "label": "Items By",
+            "name": "b-quotes__items_by",
+            "type": "select",
+            "choices": {
+                "taxonomy": "Taxonomy",
+                "selection": "Selection"
+            },
+            "default_value": "taxonomy",
+            "return_format": "value",
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_b_quotes__items_selection",
+            "label": "Items",
+            "name": "b-quotes__items_selection",
+            "type": "post_object",
+            "post_type": [
+                "quote"
+            ],
+            "return_format": "id",
+            "multiple": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_b_quotes__items_by",
+                        "operator": "==",
+                        "value": "selection"
+                    }
+                ]
+            ],
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_b_quotes__items_taxonomy",
+            "label": "Items",
+            "name": "b-quotes__items_taxonomy",
+            "type": "taxonomy",
+            "taxonomy": "quote-category",
+            "field_type": "checkbox",
+            "return_format": "id",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_b_quotes__items_by",
+                        "operator": "==",
+                        "value": "taxonomy"
+                    }
+                ]
+            ],
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_b_quotes__items_count",
+            "label": "Items Count",
+            "name": "b-quotes__items_count",
+            "type": "number",
+            "default_value": -1,
+            "wpml_cf_preferences": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "stilpress/b-quotes"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0,
+    "modified": 1791200875
+}

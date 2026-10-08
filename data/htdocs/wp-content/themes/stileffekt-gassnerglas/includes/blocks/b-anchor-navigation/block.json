@@ -1,0 +1,25 @@
+{
+  "name": "stilpress/b-anchor-navigation",
+  "apiVersion": 3,
+  "title": "Anchor Navigation",
+  "description": "",
+  "style": "file:./style.css",
+  "category": "stilpress-all",
+  "icon": "block-default",
+  "keywords": [
+    "anchor",
+    "navigation"
+  ],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "className": true,
+    "customClassName": true,
+    "alignContent": false
+  },
+  "acf": {
+    "hideFieldsInSidebar": true,
+    "blockVersion": 3,
+    "renderTemplate": "block.php"
+  }
+}

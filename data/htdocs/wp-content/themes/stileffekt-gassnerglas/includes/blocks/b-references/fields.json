@@ -1,0 +1,85 @@
+{
+    "key": "group_b_references",
+    "title": "References",
+    "fields": [
+        {
+            "key": "field_b_references__overline",
+            "label": "Overline",
+            "name": "b-references__overline",
+            "type": "text",
+            "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_b_references__headline",
+            "label": "Headline",
+            "name": "b-references__headline",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            },
+            "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_b_references__headline_type",
+            "label": "Headline Type",
+            "name": "b-references__headline_type",
+            "type": "select",
+            "wrapper": {
+                "width": "25"
+            },
+            "choices": {
+                "h1": "h1",
+                "h2": "h2",
+                "h3": "h3",
+                "h4": "h4",
+                "h5": "h5",
+                "h6": "h6"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_b_references__headline_style",
+            "label": "Headline Style",
+            "name": "b-references__headline_style",
+            "type": "select",
+            "wrapper": {
+                "width": "25"
+            },
+            "choices": {
+                "h1": "h1",
+                "h2": "h2",
+                "h3": "h3",
+                "h4": "h4",
+                "h5": "h5",
+                "h6": "h6"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_b_references__text",
+            "label": "Text",
+            "name": "b-references__text",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "wpml_cf_preferences": 2
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "stilpress/b-references"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0,
+    "modified": 1791200875
+}

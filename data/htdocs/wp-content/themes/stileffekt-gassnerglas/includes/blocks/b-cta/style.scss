@@ -1,0 +1,44 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-cta {
+
+  .b__content {
+    @include grid-column(24);
+    border: 1px solid var(--color-1);
+    border-radius: var(--border-radius-lg);
+    padding: #{fluid(32px, 64px)};
+    text-align: center;
+
+    .c-text {
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .c-buttons {
+      justify-content: center;
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .b-cta {
+    .b__content {
+      @include grid-column(20, 2);
+    }
+  }
+}
+
+@include breakpoint(lg) {
+  .b-cta {
+    .b__content {
+      @include grid-column(16, 4);
+    }
+  }
+}
+
+.b-faqs + .b-cta {
+  margin-top: calc(var(--block-margin) / 2);
+}

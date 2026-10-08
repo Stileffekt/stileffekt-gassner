@@ -1,0 +1,25 @@
+@use "../mixins/breakpoints" as *;
+@use "../mixins/grid" as *;
+@use "../mixins/fluid" as *;
+
+.c-overline {
+  display: block;
+
+  span {
+    display: inline-block;
+    font-size: #{fluid(12px, 14px)};
+    border-radius: #{fluid(24px, 24px)};
+    line-height: 1.2;
+    letter-spacing: 2px;
+    font-weight: 300;
+    color: var(--color-text);
+    text-transform: uppercase;
+  }
+}
+
+.l-text-inverted .c-overline {
+  span {
+    color: var(--color-text-inverted);
+  }
+}
+

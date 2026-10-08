@@ -1,0 +1,25 @@
+{
+  "name": "stilpress/b-references",
+  "title": "References",
+  "description": "",
+  "style": "file:./style.css",
+  "script": "file:./script.js",
+  "category": "stilpress-all",
+  "icon": "block-default",
+  "apiVersion": 3,
+  "keywords": [
+    "references"
+  ],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "className": true,
+    "customClassName": true,
+    "alignContent": false
+  },
+  "acf": {
+    "hideFieldsInSidebar": true,
+    "blockVersion": 3,
+    "renderTemplate": "block.php"
+  }
+}

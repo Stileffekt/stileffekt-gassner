@@ -1,0 +1,33 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-text {
+
+  .b__content {
+    @include grid-column(24);
+  }
+
+  &.text-size-intro {
+    .c-text {
+      line-height: 1.6;
+      font-size: #{fluid(16px, 20px)};
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .b-text {
+    .b__content {
+      @include grid-column(20, 2);
+    }
+  }
+}
+
+@include breakpoint(xl) {
+  .b-text {
+    .b__content {
+      @include grid-column(16, 4);
+    }
+  }
+}

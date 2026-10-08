@@ -1,0 +1,139 @@
+@use "mixins/breakpoints" as *;
+@use "mixins/grid" as *;
+
+pre.debug {
+  width: 100%;
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+:root {
+  --g-width: "0px";
+  --g-query: "XXS";
+}
+
+@include breakpoint(xs) {
+  :root {
+    --g-query: 'XS';
+  }
+}
+
+@include breakpoint(sm) {
+  :root {
+    --g-query: 'SM';
+  }
+}
+
+@include breakpoint(md) {
+  :root {
+    --g-query: 'MD';
+  }
+}
+
+@include breakpoint(lg) {
+  :root {
+    --g-query: 'LG';
+  }
+}
+
+@include breakpoint(xl) {
+  :root {
+    --g-query: 'XL';
+  }
+}
+
+@include breakpoint(xxl) {
+  :root {
+    --g-query: 'XXL';
+  }
+}
+
+
+:root {
+  --grid-color-line: hsla(var(--grid-color), 0.2);
+  --grid-color-column: hsla(var(--grid-color), 0.2);
+  --grid-color-gutter: transparent;
+  --grid-color-baseline: hsla(var(--grid-color), 0.2);
+  --grid-color: 190, 100%, 50%;
+  --line-thickness: 1px;
+  --column-start: 0;
+  --column-start-line: var(--line-thickness);
+  --column-end: calc((100% / var(--layout-columns)) - var(--layout-gutter) - var(--line-thickness));
+  --column-end-line: calc((100% / var(--layout-columns)) - var(--layout-gutter));
+  --gutter-end: calc(100% / var(--layout-columns));
+
+  --g-gradient-column: repeating-linear-gradient(
+                  to right,
+                  var(--grid-color-line) var(--column-start),
+                  var(--grid-color-line) var(--column-start-line),
+                  var(--grid-color-column) var(--column-start-line),
+                  var(--grid-color-column) var(--column-end),
+                  var(--grid-color-line) var(--column-end),
+                  var(--grid-color-line) var(--column-end-line),
+                  var(--grid-color-gutter) var(--column-end-line),
+                  var(--grid-color-gutter) var(--gutter-end)
+  );
+  --g-gradient-baseline: repeating-linear-gradient(
+                  to bottom,
+                  var(--grid-color-baseline),
+                  var(--grid-color-baseline) var(--line-thickness),
+                  transparent var(--line-thickness),
+                  transparent 20px
+  );
+}
+
+
+html.stilpress-debug__grid {
+  display: flex;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--document-height, auto);
+  justify-content: center;
+}
+
+.stilpress-debug__toggle::after {
+  display: inline-block;
+  content: var(--g-width);
+  right: 0;
+  bottom: 0;
+  white-space: pre;
+  text-transform: uppercase;
+  background-color: #0c88b4;
+  color: #fff;
+  padding: 4px 8px;
+  cursor: pointer;
+  z-index: 9999999;
+  position: fixed;
+  font-size: 14px;
+}
+
+html.stilpress-debug__grid::after {
+  position: fixed;
+  z-index: 1000;
+  content: '';
+  width: calc(100% - var(--layout-offset) * 2);
+  padding: 0 var(--layout-offset);
+  max-width: var(--layout-width-max);
+  min-height: 100vh;
+  background-image: var(--g-gradient-column), var(--g-gradient-baseline);
+  background-position: 0 0;
+  background-size: calc(100% + var(--layout-gutter)) 100vh;
+  pointer-events: none;
+}
+
+html.stilpress-debug__grid body { /* todo: find another way, leads to errors in certain layouts */
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+@include breakpoint(xl) {
+  html.stilpress-debug__grid::after {
+    max-width: var(--layout-width-max);
+    //max-width: calc(var(--grid-width-max) - var(--grid-offset) * 2);
+  }
+}

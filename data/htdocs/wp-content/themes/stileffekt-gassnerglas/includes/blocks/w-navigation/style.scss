@@ -1,0 +1,28 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.w-navigation {
+
+  ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    gap: #{fluid(8px, 16px)};
+
+    li {
+      width: 100%;
+      margin-top: 0;
+    }
+
+    ul {
+      display: none;
+    }
+
+    a {
+      font-size: #{fluid(14px, 18px)};
+    }
+  }
+}

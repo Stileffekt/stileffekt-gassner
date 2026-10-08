@@ -1,0 +1,25 @@
+{
+  "name": "stilpress/b-hero",
+  "title": "Hero",
+  "description": "",
+  "style": "file:./style.css",
+  "script": "file:./script.js",
+  "category": "stilpress-all",
+  "icon": "heading",
+  "keywords": [
+    "hero"
+  ],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "className": true,
+    "customClassName": true,
+    "alignContent": false
+  },
+  "apiVersion": 3,
+  "acf": {
+    "hideFieldsInSidebar": true,
+    "blockVersion": 3,
+    "renderTemplate": "block.php"
+  }
+}

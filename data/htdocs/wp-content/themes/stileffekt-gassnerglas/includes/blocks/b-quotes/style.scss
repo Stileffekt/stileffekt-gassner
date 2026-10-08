@@ -1,0 +1,86 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-quotes {
+
+  .b__content {
+    @include grid-column(12);
+  }
+
+  .b__quotes {
+    @include grid-column(12);
+    overflow: hidden;
+  }
+
+
+  .b__content + .b__quotes {
+    margin-top: var(--spacing);
+  }
+
+  .c-quote {
+    background-color: var(--color-background-3);
+    padding: #{fluid(16px,32px)};
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+  }
+
+  .c-quote__meta {
+    position: relative;
+    margin-top: #{fluid(32px,64px)};
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .c-quote__media {
+    aspect-ratio: 1;
+    width: #{fluid(88px, 128px)};
+
+    .c-media--fit-cover,
+    .c-media--fit-contain {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: unset;
+    }
+  }
+
+  .c-quote__media:not(:has(.c-media)) + .c-quote__info {
+    transform: translateX(calc((#{fluid(88px,128px)} + #{fluid(8px,16px)}) * -1));
+  }
+
+  .c-quote__info {
+    width: calc(100% - #{fluid(88px, 128px)});
+    position: relative;
+
+    .c-quote__name {
+      font-weight: 800;
+    }
+
+    .c-quote__position {
+      font-weight: 800;
+    }
+
+  }
+}
+
+@include breakpoint(lg) {
+  .b-quotes {
+
+    .b__content {
+      @include grid-column(8);
+    }
+
+    &--single {
+      .b__content {
+        @include grid-column(8, 2);
+      }
+
+      .b__quotes {
+        @include grid-column(8, 2);
+      }
+    }
+  }
+}

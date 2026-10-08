@@ -1,0 +1,12 @@
+.idea
+.DS_Store
+
+*.css
+*.css.map
+
+!/*.css
+
+.Claude
+CLAUDE.md
+
+TODO.md

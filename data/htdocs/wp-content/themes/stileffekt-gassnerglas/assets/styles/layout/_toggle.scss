@@ -1,0 +1,92 @@
+@use "../mixins/breakpoints" as *;
+@use "../mixins/fluid" as *;
+
+.header__toggle {
+  margin-left: auto;
+  cursor: pointer;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.toggle {
+  position: relative;
+  z-index: 11;
+  color: var(--color-text);
+  display: flex;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
+  }
+
+  &__label {
+    display: none;
+  }
+
+  &__indicator {
+    position: relative;
+    z-index: 11;
+    height: 18px;
+    width: 32px;
+
+    span {
+      position: absolute;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background-color: var(--color-1);
+      transition: all 0.4s ease-in-out;
+      border-radius: 2px;
+
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:nth-child(3) {
+        bottom: 0;
+      }
+    }
+
+  }
+
+
+  &.is-active {
+
+    .toggle__indicator {
+      color: transparent;
+
+      span {
+
+        &:nth-child(1) {
+          top: calc(50% - 1px);
+          transform: rotate(-45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          bottom: calc(50% - 1px);
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}
+
+[dir="rtl"] .header__toggle {
+  margin-left: 0;
+  margin-right: 24px;
+}
+
+@include breakpoint(menu) {
+  .toggle--navigation {
+    display: none;
+  }
+}

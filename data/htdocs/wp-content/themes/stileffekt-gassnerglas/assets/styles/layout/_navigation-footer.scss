@@ -1,0 +1,31 @@
+@use "../mixins/breakpoints" as *;
+@use "../mixins/grid" as *;
+@use "../mixins/fluid" as *;
+
+.c-navigation--footer {
+
+  .c-navigation__list {
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: #{fluid(16px,32px)};
+  }
+
+  .c-navigation__item {
+    width: 100%;
+  }
+
+  .c-navigation__submenu {
+    display: none;
+  }
+}
+
+@include breakpoint(sm) {
+  .c-navigation--footer {
+    .c-navigation__item {
+      width: unset;
+    }
+  }
+}

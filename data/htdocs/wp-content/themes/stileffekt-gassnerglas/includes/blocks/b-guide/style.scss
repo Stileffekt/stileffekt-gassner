@@ -1,0 +1,222 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-guide {
+
+  .b__content {
+    @include grid-column(24);
+  }
+
+  .b__guide {
+    @include grid-column(24);
+  }
+
+  .b__content + .b__guide {
+    margin-top: var(--spacing);
+  }
+
+  .c-media--fit-cover,
+  .c-media--fit-contain {
+    aspect-ratio: 1;
+    height: 100%;
+  }
+
+  .c-guide {
+    --color-line: var(--color-1);
+    --space-width: #{fluid(32px, 4px)};
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    counter-reset: guide-counter;
+    padding-left: calc(var(--space-width) / 2);
+  }
+
+  .c-guide__image {
+    width: 40%;
+  }
+
+  .c-guide__item {
+    position: relative;
+    left: var(--space-width);
+    display: flex;
+    flex-flow: column;
+    column-gap: #{fluid(12px, 16px)};
+    width: calc(100% - var(--space-width));
+    padding-bottom: #{fluid(40px,80px)};
+    counter-increment: guide-counter;
+
+    &:before {
+      position: absolute;
+      content: counter(guide-counter);
+      top: 0;
+      bottom: 0;
+      left: calc(var(--space-width) * -1);
+      width: #{fluid(32px, 40px)};
+      height: #{fluid(32px, 40px)};
+      background-color: var(--color-line);
+      color: white;
+      z-index: 2;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: #{fluid(16px, 20px)};
+    }
+
+    &:after {
+      position: absolute;
+      right: 100%;
+      left: calc(var(--space-width) * -1);
+      top: #{fluid(40px, 48px)};
+      content: '';
+      width: 1px;
+      height: calc(100% - #{fluid(40px, 48px)});
+      background-color: var(--color-line);
+      transform: translateX(-50%);
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+  }
+
+  .c-guide__title.h3 {
+    color: var(--color-1);
+    margin-top: #{fluid(16px, 24px)};
+    margin-bottom: #{fluid(8px, 16px)};
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+}
+
+@include breakpoint(md) {
+  .b-guide {
+
+    .b__content {
+      @include grid-column(16, 4);
+      text-align: center;
+    }
+
+    .c-guide {
+      padding-left: 0;
+    }
+
+    .c-guide__item {
+      left: unset;
+      flex-flow: row nowrap;
+      gap: calc(var(--space-width) * 2);
+
+      &:before {
+        left: 50%;
+      }
+
+      &:after {
+        left: 50%;
+      }
+
+      &:nth-child(2n) {
+        .c-guide__content {
+          margin-left: 50%;
+          padding-right: 0;
+          padding-left: var(--space-width);
+        }
+
+        .c-guide__image {
+
+          &:after {
+            left: unset;
+            right: 0;
+          }
+        }
+      }
+    }
+
+    .c-guide__content {
+      order: 2;
+      width: 50%;
+      padding-right: var(--space-width);
+    }
+
+    .c-guide__image {
+      position: relative;
+      order: 1;
+      padding-top: calc(var(--space-width) * 1.5);
+
+      &:before {
+        position: absolute;
+        content: '';
+        right: 0;
+        top: calc(var(--space-width) / 2);
+        height: 2px;
+        width: 100%;
+        background-color: var(--color-1);
+      }
+
+      &:after {
+        position: absolute;
+        content: '';
+        left: 0;
+        top: calc(var(--space-width) / 2);
+        height: #{fluid(16px,24px)};
+        width: #{fluid(16px,24px)};
+        transform: translateY(calc(-50% + 1px));
+        border-radius: 50%;
+        background-color: var(--color-1);
+      }
+    }
+
+  }
+}
+
+@include breakpoint(lg) {
+  .b-guide {
+    .c-guide__content {
+      display: flex;
+      flex-flow: row wrap;
+
+      .c-guide__title {
+        margin-top: 0;
+      }
+
+      .c-guide__image {
+        width: 30%;
+        order: 2;
+      }
+
+      .c-guide__text {
+        width: 70%;
+        order: 1;
+        margin-top: 0;
+        padding-right: var(--space-width);
+      }
+    }
+
+    .c-guide__item {
+
+      &:nth-child(2n) {
+        .c-guide__content {
+
+          .c-guide__image {
+            order: 1;
+          }
+
+          .c-guide__text {
+            order: 2;
+            padding-right: 0;
+            padding-left: var(--space-width);
+          }
+        }
+      }
+    }
+  }
+}

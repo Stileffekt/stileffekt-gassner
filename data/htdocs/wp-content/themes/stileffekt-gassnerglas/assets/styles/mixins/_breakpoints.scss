@@ -1,0 +1,63 @@
+$grid-breakpoints: (
+        xxs: 400px,
+        xs: 576px,
+        sm: 768px,
+        md: 1024px,
+        lg: 1280px,
+        xl: 1440px,
+        xxl: 1920px,
+        menu: 1024px,
+        above: 2100px,
+);
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $max: map-get($breakpoints, $name);
+  @return if($max and $max > 0, $max - .02, null);
+}
+
+@mixin breakpoint($name, $direction: 'min', $breakpoints: $grid-breakpoints) {
+
+  @if $direction == 'max' {
+    $max: breakpoint-max($name, $breakpoints);
+    @if $max {
+      @media (max-width: $max) {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  } @else if $direction == 'min' {
+    $min: breakpoint-min($name, $breakpoints);
+    @if $min {
+      @media (min-width: $min) {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+}
+
+
+@mixin grid-width($columns, $offset: 0, $add: 0px) {
+  & {
+    width: calc((100vw / var(--layout-columns) * #{$columns}) - 0.01px + #{$add});
+
+    @if ($offset != 0) {
+      margin-left: calc((100vw / var(--layout-columns) * #{$offset}) + 0.01px);
+    }
+
+    @media (min-width: 1920px) {
+      width: calc((var(--layout-width-max) / var(--layout-columns) * #{$columns}) - 0.01px + #{$add});
+
+      @if ($offset != 0) {
+        margin-left: calc((var(--layout-width-max) / var(--layout-columns) * #{$offset}) + 0.01px);
+      }
+    }
+  }
+}

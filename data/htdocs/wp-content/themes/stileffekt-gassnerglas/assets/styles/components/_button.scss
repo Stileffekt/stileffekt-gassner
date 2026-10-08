@@ -1,0 +1,72 @@
+@use "../mixins/fluid" as *;
+
+.c-buttons {
+  display: flex;
+  flex-flow: row wrap;
+  gap: #{fluid(16px, 24px)};
+  margin-top: var(--spacing-md);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.c-button {
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: #{fluid(12px, 16px)}  #{fluid(16px, 32px)};
+  text-align: center;
+  text-decoration: none;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: #{fluid(20px, 24px)};
+  height: #{fluid(40px, 48px)};
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, border-color 0.4s ease-in-out;
+  color: var(--color-text-inverted);
+  background-color: var(--color-10);
+  border: 1px solid var(--color-10);
+
+  .c-icon {
+    margin-left: 12px;
+    width: #{fluid(16px, 20px)};
+    height: #{fluid(16px, 20px)};
+    color: var(--color-text-inverted);
+
+    svg path {
+      fill: var(--color-text-inverted);
+      transition: fill 0.4s ease-in-out;
+    }
+  }
+
+  &:hover, &:focus {
+    background-color: transparent;
+    color: var(--color-text);
+
+    .c-icon svg path {
+      fill: var(--color-1);
+    }
+  }
+}
+
+
+.l-text-inverted .c-button {
+  color: var(--color-text);
+  background-color: var(--color-11);
+  border: 1px solid var(--color-12);
+
+  &:hover {
+    background-color: transparent;
+    color: var(--color-text-inverted);
+  }
+}
+
+  .header__cta .c-button {
+
+}

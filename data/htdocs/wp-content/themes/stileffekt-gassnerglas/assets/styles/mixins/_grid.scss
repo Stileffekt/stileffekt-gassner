@@ -1,0 +1,53 @@
+@mixin grid-column($width, $offset: null, $parent: null) {
+  & {
+    $gutter: var(--layout-gutter);
+
+    width: 1px;
+    @if $parent != null {
+      min-width: calc((100% / #{$parent} * #{$width}) - #{$gutter} - 0.01px);
+    } @else {
+      min-width: calc((100% / var(--layout-columns) * #{$width}) - #{$gutter} - 0.01px);
+    }
+
+    margin-left: calc(#{$gutter} / 2);
+    margin-right: calc(#{$gutter} / 2);
+    margin-inline-end: calc(#{$gutter} / 2);
+    margin-inline-start: calc(#{$gutter} / 2);
+
+    @if $offset != null {
+      @if $parent != null {
+        margin-left: calc((100% / #{$parent} * #{$offset}) + (#{$gutter} / 2));
+        margin-inline-start: calc((100% / #{$parent} * #{$offset}) + (#{$gutter} / 2));
+      } @else {
+        margin-left: calc((100% / var(--layout-columns) * #{$offset}) + (#{$gutter} / 2));
+        margin-inline-start: calc((100% / var(--layout-columns) * #{$offset}) + (#{$gutter} / 2));
+      }
+    }
+
+    //[dir="rtl"] & {
+    //  @if $offset != null {
+    //
+    //    @if $parent != null {
+    //      margin-left: calc(#{$gutter} / 2);
+    //      margin-right: calc((100% / #{$parent} * #{$offset}) + (#{$gutter} / 2));
+    //      margin-inline-start: calc((100% / #{$parent} * #{$offset}) + (#{$gutter} / 2));
+    //    } @else {
+    //
+    //      margin-left: calc(#{$gutter} / 2);
+    //      margin-right: calc((100% / var(--layout-columns) * #{$offset}) + (#{$gutter} / 2));
+    //      margin-inline-start: calc((100% / var(--layout-columns) * #{$offset}) + (#{$gutter} / 2));
+    //    }
+    //  }
+    //}
+
+  }
+}
+
+@function grid-column-width($width, $parent: null) {
+  $gutter: var(--layout-gutter);
+  @if $parent != null {
+    @return calc((100% / #{$parent} * #{$width}) + (#{$gutter} * (#{$width} - 1)));
+  } @else {
+    @return calc((100% / var(--layout-columns) * #{$width}) + (#{$gutter} * (#{$width} - 1)));
+  }
+}
